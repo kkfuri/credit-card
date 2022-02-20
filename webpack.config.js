@@ -5,12 +5,12 @@ module.exports = {
   entry: path.join(__dirname, "src", "index.tsx"),
   devtool: "inline-source-map",
   output: {
-    path: path.join(__dirname, "build", "dist"),
+    path: path.join(__dirname, "build"),
     filename: "bundle.js"
   },
   devtool: "inline-source-map",
   devServer: {
-    static: "./build/dist",
+    static: "./build",
   },
   module: {
     rules: [
