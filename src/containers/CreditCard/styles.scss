@@ -1,0 +1,54 @@
+body, #root {
+  background-color: #D2E8FB;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  place-content: center;
+}
+
+.form__credit-card {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 22rem;
+  padding: 2rem;
+  border-radius: 0.25rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0rem 0.5rem 1.875rem 0rem;
+  margin: auto;
+
+  > * + * {
+    margin-top: 1rem;
+  }
+
+  button {
+    border: 0;
+    background: rgb(57, 111, 211);
+    color: white;
+    display: flex;
+    place-content: center;
+    padding: 1rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 1.125rem;
+    letter-spacing: 0.125rem;
+    border-radius: 0.125rem;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: rgba(57, 111, 211, 0.8)
+    }
+
+    &:disabled {
+      pointer-events: none;
+      background: rgb(140,140,140);
+    }
+  }
+
+  .cvv-block {
+    width: 30%;
+    margin-left: 1rem;
+  }
+}

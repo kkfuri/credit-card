@@ -1,0 +1,99 @@
+.credit-card {
+  position: relative;
+  height: 9rem;
+
+  .focus {
+    border-color: white!important;
+    border-radius: 4px;
+  }
+
+  .card {
+    position: absolute;
+    top: -80%;
+    color: white;
+    height: 14rem;
+    width: 100%;
+    color: rgb(200, 200, 200);
+    border-radius: 0.375rem;
+    overflow: hidden;
+    box-shadow: rgba(100, 100, 111, 0.2) 0 0.6rem 2rem 0;
+    transform-style: preserve-3d;
+    transition: all 0.4s linear;
+
+    &--front, &--back {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: blueviolet;
+      background: radial-gradient(circle at top right, rgb(132, 0, 255) 25%, rgb(138, 43, 226) 100%);
+    }
+
+    &--front {
+      z-index: 10;
+    }
+    &--back {
+      transform: rotateY(180deg);
+    }
+
+    &.flipped {
+      transform: rotateY(180deg);
+      .card--back {
+        z-index: 20;
+      }
+    }
+
+    .cc-number, .cc-expiry, .cc-name {
+      border: 2px solid transparent;
+      padding: 0.25rem;
+    }
+
+     .cc-number {
+      display: inline-block;
+      font-family: monospace;
+      font-size: 1.5rem;
+      margin: 6rem 2rem 0;
+    }
+
+    .cc-expiry {
+      width: 35%;
+    }
+
+    .cc-name {
+      width: 100%;
+      height: 2.2rem;
+    }
+
+    .cvv {
+      display: block;
+      text-align: right;
+      background: white;
+      border-radius: 0.25rem;
+      margin: 6rem 1rem 0;
+      padding: 1rem;
+      height: 1rem;
+      color:rgba(32, 32, 32);
+      font-size: 1rem;
+      font-family: monospace;
+    }
+
+    .label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: bold;
+      font-family: sans-serif;
+    }
+
+    .value {
+      font-size: 1rem;
+      font-family: monospace;
+    }
+
+    .second-row {
+      margin-top: 2rem;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

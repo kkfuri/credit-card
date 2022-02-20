@@ -1,0 +1,50 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  > * + * {
+    margin-top: 0.25rem;
+  }
+
+  &.error-message {
+    select, input {
+      border-color: crimson;
+    }
+    label, .error-hint {
+      color: crimson;
+    }
+  }
+
+  .children-inputs {
+    display: flex;
+    > * + * {
+      margin-left: 0.25rem;
+    }
+  }
+
+  label, .error-hint {
+    font-family: Verdana, sans-serif;
+    font-size: 0.75rem;
+  }
+
+  label {
+    text-transform: uppercase;
+    color: rgb(32,32,32);
+    font-weight: bold;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    border: 0;
+    white-space: nowrap;
+  }
+}
