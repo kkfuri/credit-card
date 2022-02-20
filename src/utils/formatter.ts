@@ -1,3 +1,7 @@
+const creditCardSpacer = (value: string) => {
+  return value.match(/.{1,4}/g)?.join(" ") || "";
+};
+
 export const creditCardInputMask = (value: string) => {
   let trimValue = value.replaceAll(" ", "").replace(/[^\d]/g, "");
 
@@ -8,10 +12,6 @@ export const creditCardInputMask = (value: string) => {
   const formattedNumber = creditCardSpacer(trimValue);
 
   return formattedNumber;
-};
-
-export const creditCardSpacer = (value: string) => {
-  return value.match(/.{1,4}/g)?.join(" ") || "";
 };
 
 export const cvvMask = (value: string) => {
