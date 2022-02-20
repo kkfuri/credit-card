@@ -11,9 +11,10 @@ type Props = PropsWithChildren<{
 }>
 
 function FormGroup({ id, label, error, children }: Props) {
+  const errorInputProps = error ? { 'aria-invalid': true, 'aria-errormessage': `${id}-error` } : {}
   const childrenWithProps = React.Children.map(children, (child, index) => {
     if (React.isValidElement(child)) {
-      return React.cloneElement(child, index === 0 ? { id } : {} as any);
+      return React.cloneElement(child, index === 0 ? { id, ...errorInputProps } : { ...errorInputProps } as any);
     }
     return child;
   });
@@ -25,7 +26,7 @@ function FormGroup({ id, label, error, children }: Props) {
         {childrenWithProps}
       </div>
       {error && (
-        <p className="error-hint">
+        <p className="error-hint" id={`${id}-error`} aria-live="assertive">
           <span className="visually-hidden">Error:</span> {error}
         </p>
       )}
