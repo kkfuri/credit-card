@@ -2,7 +2,7 @@ import { monthOptions, yearOptions } from "../date";
 
 describe("utils/date.ts", () => {
   describe("monthOptions", () => {
-    it("should retrieve month options", () => {
+    it("returns month options", () => {
       expect(monthOptions).toStrictEqual([
         { label: "01", value: 1 },
         { label: "02", value: 2 },
@@ -21,14 +21,14 @@ describe("utils/date.ts", () => {
   });
 
   describe("yearOptions()", () => {
-    it("should retrieve selected number of year options", () => {
+    it("returns selected number of year options", () => {
       expect(yearOptions(2)).toStrictEqual([
         { label: "2022", value: 2022 },
         { label: "2023", value: 2023 },
       ]);
     });
 
-    it("should have initial year in `new Date()` full year value`", () => {
+    it("have initial year in `new Date()` full year value`", () => {
       const MOCK_YEAR = 2028;
       jest.useFakeTimers("modern");
       jest.setSystemTime(new Date(MOCK_YEAR, 1, 1));

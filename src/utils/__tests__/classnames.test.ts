@@ -2,12 +2,12 @@ import cn from "../classnames";
 
 describe("utils/classnames.ts", () => {
   describe("cn()", () => {
-    it("should join string classnames", () => {
+    it("joins string classnames", () => {
       const className = cn(["Kikis", "delivery", "service"]);
       expect(className).toBe("Kikis delivery service");
     });
 
-    it("should filter falsy classnames", () => {
+    it("filters falsy classnames", () => {
       const className = cn([
         "Kikis",
         false,
