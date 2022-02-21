@@ -20,7 +20,7 @@ function CreditCard({ number, name, month = "MM", year = "YYYY", cvv, focus }: P
 
   return (
     <div className="credit-card">
-      <div className={cn(["card", isFlipped && "flipped"])}>
+      <div className={cn(["card", isFlipped && "flipped"])} data-testid="cc-card">
         <div className="card--front">
           <span className={getFullClassName("cc-number")} data-testid="cc-number">
             {creditCardMask(number)}
