@@ -1,14 +1,14 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
-  mode: "development",
+  mode: process.env.NODE_ENV === "production" ? "production" : "development",
   entry: path.join(__dirname, "src", "index.tsx"),
-  devtool: "inline-source-map",
+  devtool: process.env.NODE_ENV !== "production" ? "inline-source-map" : null,
   output: {
     path: path.join(__dirname, "build"),
     filename: "bundle.js"
   },
-  devtool: "inline-source-map",
   devServer: {
     static: "./build",
   },
@@ -37,7 +37,7 @@ module.exports = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      "@": path.resolve(__dirname, "src"),
     }
   },
   plugins: [
