@@ -31,6 +31,7 @@
 
     &--front {
       z-index: 10;
+      text-align: center;
     }
     &--back {
       transform: rotateY(180deg);
@@ -52,7 +53,7 @@
       display: inline-block;
       font-family: monospace;
       font-size: 1.5rem;
-      margin: 6rem 2rem 0;
+      margin-top: 6rem;
       @media only screen and (max-width: 480px) {
         font-size: 1.35rem;
       }
@@ -97,6 +98,7 @@
       padding: 0 1rem;
       display: flex;
       justify-content: space-between;
+      text-align: left;
     }
   }
 }
