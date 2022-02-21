@@ -11,8 +11,8 @@ type Props = {
 
 function Select({ options, placeholder, ...props }: Props) {
   return (
-    <select {...props} className={cn(['select', props?.className])}>
-      {placeholder && <option selected disabled>{placeholder}</option>}
+    <select {...props} className={cn(['select', props?.className])} defaultValue={props.value ?? 'placeholder'}>
+      {placeholder && <option value="placeholder" disabled>{placeholder}</option>}
       {options.map(item => <option key={item.value} value={item.value}>{item.label}</option>)}
     </select>
   )
