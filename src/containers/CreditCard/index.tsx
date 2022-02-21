@@ -11,18 +11,18 @@ import CreditCard from '@/components/CreditCard'
 
 type KeyValueStringPair = { [k: string]: string | undefined }
 
+const initialValues = {
+  number: undefined,
+  name: undefined,
+  month: undefined,
+  year: undefined,
+  cvv: undefined
+}
+
 const CreditCardContainer = () => {
   const [focus, setFocus] = useState<string | undefined>(undefined)
-  const [formValues, setFormValues] = useState<KeyValueStringPair>({
-    number: undefined,
-    name: undefined,
-    month: undefined,
-    year: undefined,
-    cvv: undefined
-  })
-  const [formErrors, setFormErrors] = useState<KeyValueStringPair>({
-    date: undefined
-  })
+  const [formValues, setFormValues] = useState<KeyValueStringPair>(initialValues)
+  const [formErrors, setFormErrors] = useState<KeyValueStringPair>({})
 
   function handleInputChange(value: string, name: string) {
     setFormValues(oldValues => ({ ...oldValues, [name]: value }))
@@ -30,6 +30,9 @@ const CreditCardContainer = () => {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    alert('Credit card added!')
+    setFormValues(initialValues)
+    event.currentTarget.reset()
   }
 
   useEffect(() => {
@@ -38,6 +41,13 @@ const CreditCardContainer = () => {
       setFormErrors(v => ({ ...v, date: isDateInvalid ? "Insert a valid date" : undefined }))
     }
   }, [formValues.month, formValues.year, setFormErrors])
+
+  useEffect(() => {
+    if (formValues.number) {
+      const isNumberInvalid = formValues.number.length < 19 && focus !== 'cc-number'
+      setFormErrors(v => ({ ...v, number: isNumberInvalid ? "Insert a valid credit card" : undefined }))
+    }
+  }, [focus, formValues.number, setFormErrors])
 
   const allFieldsAreFilled = Object.values(formValues).filter(Boolean).length === 5
   const noErrors = Object.values(formErrors).filter(Boolean).length === 0
@@ -60,7 +70,7 @@ const CreditCardContainer = () => {
   return (
     <form className="form__credit-card" noValidate onSubmit={handleSubmit}>
       <CreditCard {...formValues} focus={focus} />
-      <FormGroup id="cardnumber" label="Card Number">
+      <FormGroup id="cardnumber" label="Card Number" error={formErrors.number}>
         <TextInput
           name="cardnumber"
           autoComplete="cc-number"
