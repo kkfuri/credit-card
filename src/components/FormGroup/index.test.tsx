@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import FormGroup from "."
 
 describe("<FormGroup />", () => {
-  it("should render the children and pass props correctly", () => {
+  it("renders the children and pass props correctly", () => {
     render(
       <FormGroup id="formgroup-id" label="label">
         <input />
@@ -12,7 +12,7 @@ describe("<FormGroup />", () => {
     expect(screen.getByLabelText("label")).toHaveAttribute('id', "formgroup-id")
   })
 
-  it("should render the error message and pass props correctly to input", () => {
+  it("renders the error message and pass props correctly to input", () => {
     render(
       <FormGroup id="formgroup-id" label="label" error="error message example">
         <input />
