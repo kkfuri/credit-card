@@ -18,6 +18,11 @@ body, #root {
   box-shadow: rgba(100, 100, 111, 0.2) 0rem 0.5rem 1.875rem 0rem;
   margin: auto;
 
+  @media only screen and (max-width: 480px) {
+    padding: 1rem;
+    margin: auto 0.5rem;
+  }
+
   > * + * {
     margin-top: 1rem;
   }
